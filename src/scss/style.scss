@@ -1,0 +1,762 @@
+@import "nullstyle.scss";
+
+//-----------------mixins------------------(@mixin, @include)
+@mixin link_style ($color, $color1, $background) {
+  a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 115%;
+    border: $color 1px solid;
+  }
+  a:hover {
+    background: $background;
+    color: $color1;
+  }
+}
+
+//-----------------variables---------------(%, @extend)
+
+
+//-----------------pattern---------------($)
+$minWidth: 320px;
+$maxWidth: 1920px;
+$maxWidthCOntainer: 1440px;
+
+$md1024: 1024px;
+$md992: 992px;
+$md769: 769px;
+$md481: 481px;
+$md376: 376px;
+$md320: 320px;
+
+$fontFamily: "Roboto";
+
+$background1: #E7F066;
+$background2: #1B1B1B;
+$background2-70: rgba(27, 27, 27, 0.7);;
+$background3: #9C8554;
+$background4: #1f1f1f57;
+$background4-30: rgba(235, 235, 235, 0.3);
+$background5: #EBEBEB;
+$background6: #A26779;
+$background7: #504B4D;
+$background8: #B04836;
+$background9: #262626;
+
+$color1: #262626;
+$color2: #EBEBEB;
+$color3: #F1F1EE;
+$color4: #B2B2B2;
+$color5: #CCC;
+
+$fs28: 28px;
+$fs25: 25px;
+$fs20: 20px;
+$fs16: 16px;
+$fs15: 15px;
+$fs14: 14px;
+$fs13: 13px;
+$fs12: 12px;
+$fs11: 11px;
+//------------------------------------------------
+
+body {
+  height: 100%;
+  line-height: 118%;
+  font-size: $fs16;
+  color: $color1;
+  font-weight: 400;
+  font-family: $fontFamily;
+}
+
+.wrapper{
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+._container {
+  max-width: $maxWidthCOntainer;
+  margin: 0px auto;
+  box-sizing: content-box;
+}
+
+._ibg {
+  position: relative;
+}
+
+._ibg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+//------------standard-block------------------------------------
+
+.standard-block__container {
+  display: flex;
+  color: $color4;
+}
+
+.standard-block__head {
+  flex: 0 0 25%;
+}
+
+.standard-block__head_title {
+  margin: 39px 134px 600px 40px;
+  font-size: $fs15;
+  line-height: 126%;
+  letter-spacing: 0.5px;
+}
+
+.standard-block__head_text {
+  margin: 0px 15px 40px 40px;
+  line-height: 118%;
+  letter-spacing: 0.5px;
+  :not(:last-child) {
+    margin: 0px 0px 21px 0px;
+  }
+  div {
+    margin: 1px 27px 0px 0px;
+  }
+  a {
+    position: relative;
+    color: $color4;
+    margin: 0px 0px 5px 0px;
+  }
+  @include link_style($color4, $color1, $background1);
+}
+
+.standard-block__body {
+  position: relative;
+  flex: 0 0 75%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.standard-block__body_img {
+  position: absolute;
+  margin: 0px 0px 112px 0px;
+  width: 100%;
+  height: 86%;
+  top: 0;
+  left: 0;
+}
+
+.standard-block__body_text {
+  margin: 40px 36px 40px 0px;
+  font-size: $fs25;
+  line-height: 128%;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: $md1024) {
+  .standard-block_head__title {
+    margin: 39px 134px 600px 20px;
+  }
+  .standard-block_head_text {
+    margin: 0px 15px 40px 20px;
+  }
+}
+
+@media (max-width: $md769) {
+  .standard-block__container {
+    flex-direction: column-reverse;
+  }
+  .standard-block__head_title {
+    margin: 20px 134px 20px 20px;
+  }
+  .standard-block__head_text {
+    margin: 0px 15px 40px 20px;
+  }
+  .standard-block__body {
+    padding: 50%;
+  }
+  .standard-block__body_img {
+    position: absolute;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+  }
+  .standard-block__body_text {
+    background: $background2-70;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 40px 36px 40px 20px;
+    padding: 5px;
+  }
+}
+
+@media (max-width: $md376) {
+  .standard-block__body_text {
+    font-size: $fs20;
+  }
+}
+
+//------------header------------------------------------
+
+.header {
+  background: $background1;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  min-height: 74px;
+}
+
+.header__logo {
+  margin: 26px 0px 0px 26px;
+  z-index: 50;
+}
+
+.header__menu {
+  display: flex;
+  margin: 12px 12px 25px 0px;
+  z-index: 50;
+  div {
+    margin: 26px 40px 35px 0px;
+    font-size: $fs13;
+    line-height: 100%;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+}
+
+
+//------------page------------------------------------
+
+.page{
+}
+.main-block__page {
+}
+.candles__page {
+}
+.products__page {
+}
+.aboutus_page {
+}
+.diffuser_page {
+}
+.roommist__page {
+}
+.handwash__page {
+}
+.industry__page {
+}
+//------------main-block------------------------------------
+
+.main-block {
+  background: $background1;
+}
+
+.main-block__container {
+  position: relative;
+}
+
+.main-block__body {
+  position: relative;
+  z-index: 50;
+  display: flex;
+}
+
+.main-block__title {
+}
+
+.main-block__logo {
+  position: relative;
+  color: $color2;
+  padding: 168px 0px 35px 40px;
+  font-size: $fs12;
+  line-height: 108%;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  z-index: 50;
+}
+
+.main-block__subtitle {
+  margin: 50% 20px 0px 20px;
+  padding: 10px;
+  font-size: $fs25;
+  line-height: 128%;
+  letter-spacing: 0.5px;
+  text-align: center;
+  background: $background1;
+  opacity: 90%;
+}
+
+.main-block__content {
+}
+
+.main-block__text {
+  margin: 40px 15px 579px 63px;
+  padding: 79px 30px 0px 25px;
+  :not(:last-child) {
+    margin: 0px 0px 21px 0px;
+  }
+  div {
+    font-size: $fs14;
+    line-height: 135%;
+    letter-spacing: 0.5px;
+  }
+  a {
+    position: relative;
+    padding: 5px 0px;
+    color: $color1;
+    font-size: $fs12;
+    line-height: 158%;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  @include link_style($color1, $color2, $background2);
+}
+
+.main-block__img {
+  position: absolute;
+  width: 75%;
+  height: 86%;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: $md769) {
+  .main-block__title {
+    position: relative;
+    flex: 0 0 71.6%;
+  }
+  .main-block__subtitle {
+    margin: 0px 0px 40px 40px;
+    position: absolute;
+    bottom: 0;
+  }
+  .main-block__content {
+    flex: 0 0 28.3%;
+  }
+}
+
+@media (max-width: $md769) {
+  .main-block__body {
+    flex-direction: column;
+  }
+  .main-block__content {
+    background: $background1;
+    margin: 0px 20px 20px 20px;
+    padding: 0px 30px 20px 25px;
+    opacity: 90%;
+    :not(:last-child) {
+      margin: 0px 0px 20px 0px;
+    }
+  }
+  .main-block__text {
+    margin: 0px;
+    padding: 20px 20px 0px 20px;
+  }
+  .main-block__img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+//------------candles------------------------------------
+
+.candles {
+  background: $background3;
+  color: $color4;
+}
+
+//------------products------------------------------------
+
+.products {
+  background: $background4;
+}
+
+.products__container {
+}
+
+.products__body {
+  display: flex;
+}
+
+.products__body_item {
+  height: 800px;
+  display: flex;
+  position: relative;
+  flex: 0 1 50%;
+  div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+  a {
+    position: absolute;
+    bottom: 0;
+    margin: 0px 0px 45px 40px;
+    color: $color1;
+    font-size: $fs12;
+    line-height: 158%;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    z-index: 50;
+  }
+  @include link_style($color1, $color1, $background1);
+}
+
+.products__body_item:only-child {
+  flex: 0 1 100%;
+}
+
+@media (max-width: $md1024) {
+  .products__body {
+    flex-direction: column;
+  }
+  .products__body_item {
+    flex: 0 0 100%;
+    padding: 0px 0px 70% 0px;
+      a {
+    right: 15px;
+  }
+  }
+}
+
+@media (max-width: $md481) {
+  .products__body_item {
+    a {
+      margin: 0px 0px 20px 20px;
+      background: $background4-30;
+    }
+  }
+}
+
+//------------aboutus------------------------------------
+
+.aboutus {
+  background: $background5;
+}
+
+.aboutus__container {
+}
+
+.aboutus__body {
+  display: flex;
+  padding: 115px 25px;
+  a {
+    position: relative;
+    margin: 0px 0px 5px 0px;
+    font-size: $fs12;
+    line-height: 158%;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: $color1;
+  }
+  @include link_style($color1, $color2, $background2);
+}
+
+.aboutus__body_img {
+  flex: 0 0 55.3%;
+}
+
+.aboutus__body_content {
+}
+
+.content__aboutus {
+  flex: 1 1 44.7%;
+  margin: 129px 270px 129px 30px;
+  :not(:last-child) {
+    letter-spacing: 0.5px;
+  }
+}
+
+.content__aboutus_head {
+  margin: 0px 0px 11px 0px;
+  font-size: $fs15;
+  line-height: 126%;
+}
+
+.content__aboutus_title {
+  margin: 0px 75px 39px 0px;
+  font-size: $fs28;
+  line-height: 114%;
+}
+
+.content__aboutus_subtitle {
+  margin: 0px 0px 20px 0px;
+  font-size: $fs14;
+  line-height: 135%;
+}
+
+.content__aboutus_text {
+  margin: 0px 0px 21px 0px;
+  font-size: $fs16;
+  line-height: 118%;
+}
+
+@media (max-width: $md1024) {
+  .content__aboutus {
+    margin: 129px 50px 129px 30px;
+  }
+}
+
+@media (max-width: $md769) {
+  .aboutus__body {
+    padding: 50px 0px;
+  }
+  .aboutus__body {
+    flex-direction: column-reverse;
+  }
+  .aboutus__body_img {
+    flex: 0 0 100%;
+    padding: 0px 0px 80% 0px;
+  }
+  .content__aboutus {
+    flex: 1 1 100%;
+    margin: 20px 20px 50px 20px;
+  }
+}
+
+//------------diffuser------------------------------------
+
+.diffuser {
+  background: $background6;
+}
+
+//------------roommist------------------------------------
+
+.roommist {
+  background: $background4;
+}
+
+.roommist__container {
+  position: relative;
+  min-height: 800px;
+}
+
+.roommist__body {
+  position: relative;
+  margin: 0px 76% 0px 15px;
+  z-index: 50;
+  :not(:last-child) {
+    letter-spacing: 0.5px;
+  }
+  a {
+    position: relative;
+    padding: 5px 0px;
+    margin: 0px 0px 5px 25px;
+    font-size: $fs11;
+    line-height: 172%;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  @include link_style($color1, $color2, $background2);
+}
+
+.roommist__body_head {
+  padding: 119px 0px 11px 25px;
+  font-size: $fs15;
+  line-height: 126%;
+}
+
+.roommist__body_title {
+  margin: 0px 0px 39px 25px;
+  font-size: $fs25;
+  line-height: 128%;
+}
+
+.roommist__body_text {
+  margin: 0px 0px 2px 25px;
+  line-height: 118%;
+}
+
+.roommist__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: $md1024) {
+  .roommist__body {
+    margin: 0px 50% 0px 15px;
+  }
+}
+
+@media (max-width: $md481) {
+  .roommist__container {
+    min-height: 600px;
+  }
+  .roommist__body {
+    margin: 0px 30% 0px 0px;
+  }
+}
+
+//------------handwash------------------------------------
+
+.handwash {
+  background: $background7;
+}
+
+//------------industry------------------------------------
+
+.industry {
+  background: $background8;
+}
+
+//------------cookies------------------------------------
+
+.cookies__container {
+  display: block;
+  position: fixed;
+  bottom: 0;
+}
+
+.cookies__container:target {
+  display: none;
+}
+
+.cookies {
+  background: $background2;
+  color: $color3;
+  margin: 0px 32px 32px 71%;
+  padding: 47px 53px 53px 48px;
+  :not(:last-child) {
+    margin: 0px 0px 2px 0px;
+  }
+  div {
+    line-height: 118%;
+    letter-spacing: 0.5px;
+  }
+  a {
+    position: relative;
+    background: $background2;
+    color: $color3;
+    font-size: $fs12;
+    line-height: 158%;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+  }
+  @include link_style($color3, $color1, $background1);
+}
+
+@media (max-width: $md769) {
+  .cookies__container {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    z-index: 60;
+  }
+  .cookies {
+    margin: 0px;
+    padding: 47px 53px 53px 48px;
+  }
+}
+
+//------------footer------------------------------------
+
+.footer {
+  background: $background9;
+  color: $color5;
+}
+
+.footer__container {
+  margin: 30px 0px;
+}
+
+.footer__head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__head_title {
+  margin: 19px 20px 21px 40px;
+  font-size: $fs14;
+  line-height: 135%;
+  letter-spacing: 0.5px;
+}
+
+.footer__head_icon {
+  margin: 20px 40px 0px 0px;
+}
+
+.footer__body {
+  form {
+    display: flex;
+    align-items: end;
+    margin: 0px 0px 27px 40px;
+    min-height: 53px;
+    :not(:last-child) {
+      margin: 0px 20px 0px 0px;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      width: 280px;
+      input {
+        margin: 0px 0px 8px 0px;
+        border: none;
+        background: $background9;
+        border-bottom: $color5 1px solid;
+        color: $color5;
+      }
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover, 
+      input:-webkit-autofill:focus, 
+      input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px $background9 inset !important;
+    }
+    input:-webkit-autofill {
+      -webkit-text-fill-color: $color5 !important;
+    }
+    }
+    button {   
+      height: 19px;
+      font-size: $fs12;
+      line-height: 158%;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      background: $background9;
+      color: $color5;
+      text-align: center;
+    }
+    button:hover {
+      background: $background1;
+      color: $color1;
+    }
+  }
+}
+
+  @media (max-width: $md769) {
+    .footer__head_title {
+      margin: 20px;
+    }
+    .footer__body {
+      margin: 20px 0px 0px 0px;
+      form {
+        margin: 0px 20px 0px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        :not(:last-child) {
+          margin: 0px 0px 20px 0px;
+        }
+        label {
+          width: 80%;
+        }
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
